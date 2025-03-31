@@ -1,12 +1,13 @@
+Support Netflix
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netflix Help Center</title>
+    <title>Netflix Contact Support</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* All previous CSS remains unchanged */
         :root {
             --netflix-red: #E50914;
             --netflix-black: #141414;
@@ -14,442 +15,357 @@
             --netflix-white: #FFFFFF;
         }
 
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: var(--netflix-black); color: var(--netflix-white); margin: 0; }
+        body { 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            background-color: var(--netflix-black); 
+            color: var(--netflix-white);
+            margin: 0;
+        }
 
-        .header { background-color: var(--netflix-black); padding: 20px 50px; border-bottom: 1px solid var(--netflix-dark-gray); display: flex; justify-content: space-between; align-items: center; }
+        .header {
+            background-color: var(--netflix-black);
+            padding: 20px 50px;
+            border-bottom: 1px solid var(--netflix-dark-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-        .netflix-logo { color: var(--netflix-red); font-size: 2.5rem; font-weight: bold; text-decoration: none; }
+        .netflix-logo {
+            color: var(--netflix-red);
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
 
-        .button { background-color: var(--netflix-red); color: var(--netflix-white); padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        .support-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
 
-        .tutorial-section { padding: 40px 50px; background: linear-gradient(to bottom, rgba(20,20,20,0.9) 0%, rgba(20,20,20,1) 100%); }
+        .contact-options {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
 
-        .search-bar { width: 100%; padding: 15px; background-color: var(--netflix-dark-gray); border: none; color: var(--netflix-white); border-radius: 4px; margin: 20px 0; }
+        .contact-card {
+            width: 300px;
+            padding: 40px;
+            background-color: var(--netflix-dark-gray);
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+            animation: slideUpFadeIn 0.8s ease-out;
+        }
 
-        .articles-grid, .faq-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 30px 0; }
+        @keyframes slideUpFadeIn {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
 
-        .tutorial-card { background-color: var(--netflix-dark-gray); border-radius: 4px; padding: 15px; transition: transform 0.3s; }
-        .tutorial-card:hover { transform: scale(1.02); }
+        .contact-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(229, 9, 20, 0.2);
+        }
 
-        .card-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
-        .expand-icon { color: var(--netflix-red); transition: transform 0.3s; }
-        .tutorial-card.active .expand-icon { transform: rotate(180deg); }
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--netflix-red);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
 
-        .content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-        .tutorial-card.active .content { max-height: 1000px; padding: 15px 0; border-top: 1px solid #404040; margin-top: 10px; }
+        .contact-card:hover .contact-icon {
+            transform: rotate(15deg) scale(1.2);
+        }
 
-        .footer { background-color: var(--netflix-black); padding: 50px; border-top: 1px solid var(--netflix-dark-gray); }
-        .footer-columns { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1000px; margin: 0 auto; }
-        .footer a { color: #757575; text-decoration: none; display: block; margin: 10px 0; }
-        .footer a:hover { color: var(--netflix-red); }
+        .phone-number {
+            font-size: 1.8rem;
+            margin: 25px 0;
+            color: var(--netflix-white) !important;
+            transition: transform 0.3s ease;
+        }
+
+        .phone-number:hover {
+            transform: scale(1.05);
+        }
+
+        .support-hours {
+            color: #757575;
+            font-size: 0.9rem;
+            margin-top: 15px;
+        }
+
+        .contact-form {
+            margin-top: 50px;
+            background-color: var(--netflix-dark-gray);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: #000;
+            border: 1px solid #333;
+            color: white;
+            border-radius: 4px;
+            margin-top: 8px;
+        }
+
+        .submit-btn {
+            background-color: var(--netflix-red);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #b20710;
+        }
+
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
+        }
+
+        .footer {
+            background-color: var(--netflix-black);
+            padding: 50px 0;
+            border-top: 1px solid var(--netflix-dark-gray);
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer h4 {
+            color: var(--netflix-white);
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer a {
+            color: #757575;
+            text-decoration: none;
+            display: block;
+            margin: 10px 0;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: var(--netflix-red);
+        }
+
+        .language-selector {
+            margin-top: 30px;
+            padding: 12px 20px;
+            background-color: #000;
+            color: #757575;
+            border: 1px solid #333;
+            border-radius: 4px;
+            width: 200px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 50px;
+            color: #757575;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
     <header class="header">
         <a href="#" class="netflix-logo">NETFLIX</a>
-        <button class="button">Sign In</button>
+        <button class="submit-btn" style="float: right;">Sign In</button>
     </header>
 
-    <div class="tutorial-section">
-        <h1>Netflix Help Center</h1>
-        <input type="text" class="search-bar" placeholder="Search help articles...">
-
-        <div class="articles-grid">
-            <!-- 7 Articles -->
-            <div class="tutorial-card">
-                <div class="card-header">
-                    <div>
-                        <h2>📱 Device Setup</h2>
-                        <p>Install Netflix on all your devices</p>
-                    </div>
-                    <i class="fas fa-chevron-down expand-icon"></i>
+    <div class="support-container">
+        <h1 style="text-align: center; font-size: 2.5rem;">Contact Netflix Support</h1>
+        
+        <div class="contact-options">
+            <div class="contact-card" style="animation-delay: 0.2s;">
+                <i class="fas fa-phone-alt contact-icon bounce"></i>
+                <h2>24/7 Phone Support</h2>
+                <div class="phone-number">
+                    <a href="tel:+18055727409" style="color: white; text-decoration: none;">
+                        +1 (805) 572-7409
+                    </a>
                 </div>
-                <div class="content">
-                    <h3>Supported Devices:</h3>
-                    <ul>
-                        <li>Smart TVs (Samsung, LG, Sony)</li>
-                        <li>Streaming devices (Roku, Fire TV)</li>
-                        <li>Game consoles (PS5, Xbox Series X)</li>
-                    </ul>
-                    <h3>Setup Steps:</h3>
-                    <ol>
-                        <li>Go to your device's app store</li>
-                        <li>Search for "Netflix"</li>
-                        <li>Select <strong>Install</strong></li>
-                        <li>Launch app and sign in</li>
-                    </ol>
+                <div class="support-hours">
+                    Available in 15+ languages<br>
+                    Instant connection
                 </div>
             </div>
 
-            <div class="tutorial-card">
-                <div class="card-header">
-                    <div>
-                        <h2>🔐 Account Security</h2>
-                        <p>Protect your Netflix account</p>
-                    </div>
-                    <i class="fas fa-chevron-down expand-icon"></i>
-                </div>
-                <div class="content">
-                    <h3>Security Features:</h3>
-                    <ul>
-                        <li>Two-factor authentication</li>
-                        <li>Password rotation</li>
-                        <li>Active sessions monitoring</li>
-                    </ul>
-                    <h3>Enable 2FA:</h3>
-                    <ol>
-                        <li>Go to Account Settings</li>
-                        <li>Select <strong>Security</strong></li>
-                        <li>Choose <strong>Two-Factor Auth</strong></li>
-                        <li>Follow SMS/email instructions</li>
-                    </ol>
-                </div>
+            <div class="contact-card" style="animation-delay: 0.4s;">
+                <i class="fas fa-comment-dots contact-icon"></i>
+                <h2>Instant Live Chat</h2>
+                <p style="margin: 20px 0;">Average wait time: < 2 minutes</p>
+                <button class="submit-btn" style="margin-top: 15px; width: 100%; padding: 15px;">
+                    Start Secure Chat Now
+                </button>
             </div>
 
-            <div class="tutorial-card">
-                <div class="card-header">
-                    <div>
-                        <h2>💳 Payment Methods</h2>
-                        <p>Manage billing information</p>
-                    </div>
-                    <i class="fas fa-chevron-down expand-icon"></i>
-                </div>
-                <div class="content">
-                    <h3>Supported Payments:</h3>
-                    <ul>
-                        <li>Credit/Debit Cards</li>
-                        <li>PayPal</li>
-                        <li>Netflix Gift Cards</li>
-                    </ul>
-                    <h3>Update Payment:</h3>
-                    <ol>
-                        <li>Go to Account > Billing</li>
-                        <li>Click <strong>Update Payment Info</strong></li>
-                        <li>Enter new details</li>
-                        <li>Save changes</li>
-                    </ol>
-                </div>
-            </div>
-
-            <div class="tutorial-card">
-                <div class="card-header">
-                    <div>
-                        <h2>👪 Parental Controls</h2>
-                        <p>Manage content restrictions</p>
-                    </div>
-                    <i class="fas fa-chevron-down expand-icon"></i>
-                </div>
-                <div class="content">
-                    <h3>Setup Guide:</h3>
-                    <ol>
-                        <li>Go to Account > Profiles</li>
-                        <li>Select profile to restrict</li>
-                        <li>Set maturity rating</li>
-                        <li>Create PIN (optional)</li>
-                    </ol>
-                    <div class="note">
-                        <p>💡 PIN protects settings from being changed</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tutorial-card">
-                <div class="card-header">
-                    <div>
-                        <h2>📥 Downloads</h2>
-                        <p>Watch offline content</p>
-                    </div>
-                    <i class="fas fa-chevron-down expand-icon"></i>
-                </div>
-                <div class="content">
-                    <h3>Download Limits:</h3>
-                    <ul>
-                        <li>100 titles per device</li>
-                        <li>Expire after 48 hours</li>
-                        <li>Quality options available</li>
-                    </ul>
-                    <h3>How to Download:</h3>
-                    <ol>
-                        <li>Find title you want</li>
-                        <li>Tap <strong>Download</strong> icon</li>
-                        <li>Manage in <strong>My Downloads</strong></li>
-                    </ol>
-                </div>
-            </div>
-
-            <div class="tutorial-card">
-                <div class="card-header">
-                    <div>
-                        <h2>🎮 Gaming</h2>
-                        <p>Play Netflix mobile games</p>
-                    </div>
-                    <i class="fas fa-chevron-down expand-icon"></i>
-                </div>
-                <div class="content">
-                    <h3>Requirements:</h3>
-                    <ul>
-                        <li>Android 8.0+ or iOS 15+</li>
-                        <li>Active subscription</li>
-                        <li>2GB+ storage free</li>
-                    </ul>
-                    <h3>Get Started:</h3>
-                    <ol>
-                        <li>Open Netflix app</li>
-                        <li>Go to <strong>Games</strong> tab</li>
-                        <li>Select game > Download</li>
-                    </ol>
-                </div>
-            </div>
-
-            <div class="tutorial-card">
-                <div class="card-header">
-                    <div>
-                        <h2>🌟 Recommendations</h2>
-                        <p>Improve your suggestions</p>
-                    </div>
-                    <i class="fas fa-chevron-down expand-icon"></i>
-                </div>
-                <div class="content">
-                    <h3>Tips:</h3>
-                    <ul>
-                        <li>Rate titles you watch</li>
-                        <li>Remove from viewing history</li>
-                        <li>Follow specific genres</li>
-                    </ul>
-                    <h3>Manage Taste Profile:</h3>
-                    <ol>
-                        <li>Go to Account > Settings</li>
-                        <li>Select <strong>Taste Preferences</strong></li>
-                        <li>Adjust genre preferences</li>
-                    </ol>
+            <div class="contact-card" style="animation-delay: 0.6s;">
+                <i class="fas fa-life-ring contact-icon"></i>
+                <h2>Help Resources</h2>
+                <div style="margin: 25px 0;">
+                    <a href="#" style="color: white; display: block; margin: 15px 0;">
+                        <i class="fas fa-video"></i> Video Guides
+                    </a>
+                    <a href="#" style="color: white; display: block; margin: 15px 0;">
+                        <i class="fas fa-file-alt"></i> Troubleshooting Docs
+                    </a>
+                    <a href="help-center.html" style="color: white; display: block; margin: 15px 0;">
+                        <i class="fas fa-question-circle"></i> FAQ Portal
+                    </a>
                 </div>
             </div>
         </div>
 
-        <div class="faq-section">
-            <h2>Frequently Asked Questions</h2>
-            
-            <!-- 10 FAQs -->
-            <div class="tutorial-card">
-                <div class="card-header">
-                    <h3>How do I reset my password?</h3>
-                    <i class="fas fa-chevron-down expand-icon"></i>
+        <div class="contact-form">
+            <h2>Email Support</h2>
+            <form id="supportForm">
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" required>
                 </div>
-                <div class="content">
-                    <ol>
-                        <li>Go to Netflix login page</li>
-                        <li>Click <strong>Need help?</strong></li>
-                        <li>Enter account email</li>
-                        <li>Check email for reset link</li>
-                    </ol>
+                
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" required>
                 </div>
-            </div>
+                
+                <div class="form-group">
+                    <label>Issue Type</label>
+                    <select style="width: 100%; padding: 12px; background: #000; color: white; margin-top: 8px;">
+                        <option>Billing</option>
+                        <option>Technical Support</option>
+                        <option>Account Issues</option>
+                        <option>Content Questions</option>
+                    </select>
+                </div>
 
-            <div class="tutorial-card">
-                <div class="card-header">
-                    <h3>Why is Netflix buffering?</h3>
-                    <i class="fas fa-chevron-down expand-icon"></i>
+                <div class="form-group">
+                    <label>Describe Your Issue</label>
+                    <textarea rows="5" required></textarea>
                 </div>
-                <div class="content">
-                    <p>Common fixes:</p>
-                    <ul>
-                        <li>Check internet speed (needs 3+ Mbps)</li>
-                        <li>Restart your router</li>
-                        <li>Lower video quality in settings</li>
-                    </ul>
-                </div>
-            </div>
 
-            <div class="tutorial-card">
-                <div class="card-header">
-                    <h3>How to cancel subscription?</h3>
-                    <i class="fas fa-chevron-down expand-icon"></i>
-                </div>
-                <div class="content">
-                    <ol>
-                        <li>Go to Account > Membership</li>
-                        <li>Click <strong>Cancel Membership</strong></li>
-                        <li>Confirm cancellation</li>
-                    </ol>
-                    <p>You can restart anytime within 10 months.</p>
-                </div>
-            </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
 
-            <div class="tutorial-card">
-                <div class="card-header">
-                    <h3>How to change video quality?</h3>
-                    <i class="fas fa-chevron-down expand-icon"></i>
-                </div>
-                <div class="content">
-                    <ol>
-                        <li>Go to Account > Playback Settings</li>
-                        <li>Select quality level:
-                            <ul>
-                                <li>Auto (recommended)</li>
-                                <li>Low (SD)</li>
-                                <li>Medium (HD)</li>
-                                <li>High (UHD)</li>
-                            </ul>
-                        </li>
-                        <li>Save changes</li>
-                    </ol>
-                </div>
-            </div>
-
-            <div class="tutorial-card">
-                <div class="card-header">
-                    <h3>Why can't I download shows?</h3>
-                    <i class="fas fa-chevron-down expand-icon"></i>
-                </div>
-                <div class="content">
-                    <p>Possible reasons:</p>
-                    <ul>
-                        <li>Title not available for download</li>
-                        <li>Device storage full</li>
-                        <li>App needs update</li>
-                        <li>Regional restrictions</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="tutorial-card">
-                <div class="card-header">
-                    <h3>How to use Netflix Party?</h3>
-                    <i class="fas fa-chevron-down expand-icon"></i>
-                </div>
-                <div class="content">
-                    <ol>
-                        <li>Install browser extension</li>
-                        <li>Start playing a title</li>
-                        <li>Click extension icon</li>
-                        <li>Share link with friends</li>
-                    </ol>
-                </div>
-            </div>
-
-            <div class="tutorial-card">
-                <div class="card-header">
-                    <h3>Why is my account logged out?</h3>
-                    <i class="fas fa-chevron-down expand-icon"></i>
-                </div>
-                <div class="content">
-                    <p>Common causes:</p>
-                    <ul>
-                        <li>Password changed</li>
-                        <li>Too many devices</li>
-                        <li>Account security alert</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="tutorial-card">
-                <div class="card-header">
-                    <h3>How to get 4K content?</h3>
-                    <i class="fas fa-chevron-down expand-icon"></i>
-                </div>
-                <div class="content">
-                    <ul>
-                        <li>Upgrade to Premium plan</li>
-                        <li>Use 4K compatible device</li>
-                        <li>Ensure 25+ Mbps internet</li>
-                        <li>Select "Ultra HD" in playback settings</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="tutorial-card">
-                <div class="card-header">
-                    <h3>How to remove viewing history?</h3>
-                    <i class="fas fa-chevron-down expand-icon"></i>
-                </div>
-                <div class="content">
-                    <ol>
-                        <li>Go to Account > Profile</li>
-                        <li>Select <strong>Viewing Activity</strong></li>
-                        <li>Click 🚫 icon next to titles</li>
-                    </ol>
-                </div>
-            </div>
-
-            <div class="tutorial-card">
-                <div class="card-header">
-                    <h3>Why is audio out of sync?</h3>
-                    <i class="fas fa-chevron-down expand-icon"></i>
-                </div>
-                <div class="content">
-                    <p>Troubleshooting steps:</p>
-                    <ol>
-                        <li>Restart device</li>
-                        <li>Check for app updates</li>
-                        <li>Try different audio track</li>
-                        <li>Contact your TV manufacturer</li>
-                    </ol>
-                </div>
+        <div class="additional-support">
+            <h3>Other Ways to Connect</h3>
+            <div style="margin: 20px 0;">
+                <a href="#" style="color: #757575; margin: 0 15px;"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#" style="color: #757575; margin: 0 15px;"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="#" style="color: #757575; margin: 0 15px;"><i class="fab fa-instagram"></i> Instagram</a>
             </div>
         </div>
     </div>
 
     <footer class="footer">
-        <div class="footer-columns">
-            <div>
-                <h4>Get Help</h4>
-                <a href="#">Support</a>
-                <a href="#">Status</a>
-                <a href="#">Contact</a>
-                <a href="#">Speed Test</a>
+        <div class="footer-content">
+            <div class="footer-columns">
+                <div>
+                    <h4>Help Center</h4>
+                    <a href="#">Account Help</a>
+                    <a href="#">Payment Options</a>
+                    <a href="#">Subscription</a>
+                    <a href="#">Troubleshooting</a>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Cookie Preferences</a>
+                    <a href="#">Corporate Information</a>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+                </div>
             </div>
-            <div>
-                <h4>Account</h4>
-                <a href="#">Manage Profile</a>
-                <a href="#">Billing</a>
-                <a href="#">Security</a>
-                <a href="#">Notifications</a>
-            </div>
-            <div>
-                <h4>Legal</h4>
-                <a href="#">Terms</a>
-                <a href="#">Privacy</a>
-                <a href="#">Cookie Policy</a>
-                <a href="#">Guarantee</a>
-            </div>
-            <div>
-                <h4>Social</h4>
-                <a href="#">Twitter</a>
-                <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
-                <a href="#">Blog</a>
+
+            <select class="language-selector">
+                <option>English</option>
+                <option>Español</option>
+                <option>Français</option>
+                <option>Deutsch</option>
+            </select>
+
+            <div class="footer-bottom">
+                <p>Netflix </p>
+                <p>© 2024 Netflix, Inc. All rights reserved.</p>
+                <p>100 Winchester Circle, Los Gatos, CA 95032, USA</p>
             </div>
         </div>
-        <select class="language-selector">
-            <option>English</option>
-            <option>Español</option>
-            <option>Français</option>
-        </select>
-        <p style="color: #757575; margin-top: 20px;">© 2024 Netflix Tutorial And Help</p>
     </footer>
 
     <script>
-        // Expand/Collapse Functionality
-        document.querySelectorAll('.card-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const card = header.parentElement;
-                card.classList.toggle('active');
+        document.getElementById('supportForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you! Your support request has been submitted.');
+            e.target.reset();
+        });
+
+        document.querySelectorAll('.submit-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                let ripple = document.createElement('div');
+                ripple.style.position = 'absolute';
+                ripple.style.width = '10px';
+                ripple.style.height = '10px';
+                ripple.style.background = 'rgba(255, 255, 255, 0.4)';
+                ripple.style.borderRadius = '50%';
+                ripple.style.transform = 'translate(-50%, -50%)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                this.appendChild(ripple);
                 
-                // Close other cards
-                document.querySelectorAll('.tutorial-card').forEach(otherCard => {
-                    if(otherCard !== card) otherCard.classList.remove('active');
-                });
+                setTimeout(() => ripple.remove(), 600);
             });
         });
 
-        // Search Function
-        document.querySelector('.search-bar').addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase();
-            document.querySelectorAll('.tutorial-card').forEach(card => {
-                const text = card.textContent.toLowerCase();
-                card.style.display = text.includes(term) ? 'block' : 'none';
-            });
-        });
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                0% { transform: scale(1); opacity: 1; }
+                100% { transform: scale(50); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
